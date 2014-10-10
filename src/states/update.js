@@ -45,6 +45,11 @@ define(function () {
 
                 winner.initPosition();
                 loser.initPosition();
+                global.game.paused = true;
+
+                setTimeout(function() {
+                    global.game.paused = false;
+                }, 1000);
 
             }
 

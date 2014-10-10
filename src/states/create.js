@@ -74,9 +74,17 @@ define(function () {
             });
 
             require(['libs/gyro'], function(gyro) {
+                gyro.frequency = 1;
                 gyro.startTracking(function(o) {
-                    players[0].sprite.body.moveLeft(o.x);
+                    if(o.y) {
+
+                        players[0].sprite.body.moveRight(o.y * 150);
+                    } else if(o.gamma) {
+
+                        players[0].sprite.body.moveRight(o.gamma * 50);
+                    }
                 });
+
             });
             
             game.input.onTap.add(function () {

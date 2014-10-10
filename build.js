@@ -1,5 +1,5 @@
 ({
     baseUrl: "src/",
     name: "main",
-    out: "dist/volley.js"
+    out: "dist/main.js"
 })
