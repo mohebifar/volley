@@ -12,7 +12,6 @@ define(function () {
             }
 
             if (key.right.isDown) {
-                console.log(speed);
                 player.sprite.body.moveRight(speed);
             } else if (key.left.isDown) {
                 player.sprite.body.moveLeft(speed);
@@ -24,6 +23,30 @@ define(function () {
 
             keyControl(input.keyboard.left, players[0], speed);
             keyControl(input.keyboard.right, players[1], speed);
+
+
+            if(global.ball.body.y > 365) {
+                var winner, loser;
+                if(global.ball.body.x > 400) {
+                    winner = players[0];
+                    loser = players[1];
+                } else {
+                    winner = players[1];
+                    loser = players[0];
+                }
+
+                winner.point++;
+
+                global.ball.body.y = 60;
+                global.ball.body.x = 140 + loser.index * 510;
+
+                global.ball.body.velocity.x = 0;
+                global.ball.body.velocity.y = 0;
+
+                winner.initPosition();
+                loser.initPosition();
+
+            }
 
         });
 

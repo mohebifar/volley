@@ -42,19 +42,23 @@ define(function () {
             ball.body.addCircle(32, 0, 0);
             ball.body.gravity.y = 0.1;
             ball.body.mass = 0.001;
-            ball.body.setMaterial(spriteMaterials.ball);
+
+            global.ball = ball;
 
 
             require(['material/sprites', 'material/contacts'], function (spriteMaterials, contactMaterials) {
+                ball.body.setMaterial(spriteMaterials.ball);
                 game.physics.p2.walls.top.shapes[0].material = spriteMaterials.topWall;
                 platformer.body.setMaterial(spriteMaterials.platformer);
                 net.body.setMaterial(spriteMaterials.net);
 
                 for (var i in players) {
-                    players[i].sprite = game.add.sprite(500 * i + 150, 300, 'piece');
+                    players[i].sprite = game.add.sprite(0, 0, 'piece');
+                    players[i].pointText = game.add.text(500 * i + 150, 50, '0', { font: "36px Arial", fill: "#FFFFFF" });
+                    players[i].initPosition();
                     game.physics.p2.enable(players[i].sprite);
 
-                    players[i].sprite.body.debug = true;
+//                    players[i].sprite.body.debug = true;
 
                     players[i].sprite.body.fixedRotation = true;
                     players[i].sprite.body.gravity.y = 1000;
@@ -62,6 +66,7 @@ define(function () {
                     players[i].sprite.body.addRectangle(37, 86, 0, 33);
                     players[i].sprite.body.addCircle(32, 0, -42);
                     players[i].sprite.body.setMaterial(spriteMaterials.piece);
+
                 }
 
                 global.cursors = game.input.keyboard.createCursorKeys();
