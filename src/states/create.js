@@ -73,6 +73,16 @@ define(function () {
 
             });
 
+            require(['libs/gyro'], function(gyro) {
+                gyro.startTracking(function(o) {
+                    players[0].sprite.body.moveLeft(o.x);
+                });
+            });
+            
+            game.input.onTap.add(function () {
+                players[0].sprite.body.moveUp(300);
+            });
+
         });
 
     }
