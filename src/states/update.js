@@ -4,11 +4,15 @@
 define(function () {
     return function () {
         function keyControl(key, player, speed) {
-            if (key.up.isDown && key.up.duration < 60 && player.sprite.y > 370) {
-                player.sprite.body.moveUp(300);
-                speed /= 3;
+            if (key.up.isDown && key.up.duration < 1000) {
+                if(player.sprite.y > 300) {
+                    player.sprite.body.moveUp(300);
+                }
+                speed /= 1.5;
             }
+
             if (key.right.isDown) {
+                console.log(speed);
                 player.sprite.body.moveRight(speed);
             } else if (key.left.isDown) {
                 player.sprite.body.moveLeft(speed);
@@ -22,5 +26,6 @@ define(function () {
             keyControl(input.keyboard.right, players[1], speed);
 
         });
+
     }
 });

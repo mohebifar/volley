@@ -5,7 +5,10 @@ define(['global'], function (global) {
 
     return {
         piece: global.game.physics.p2.createMaterial('piece'),
-        ball: global.game.physics.p2.createMaterial('ball')
+        ball: global.game.physics.p2.createMaterial('ball'),
+        platformer: global.game.physics.p2.createMaterial('platformer'),
+        net: global.game.physics.p2.createMaterial('net'),
+        topWall: global.game.physics.p2.createMaterial('topWall')
     };
 
 });
