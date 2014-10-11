@@ -6,7 +6,7 @@ define(['global', 'material/sprites'], function (global, materials) {
     return {
         pieceAndBall: global.game.physics.p2.createContactMaterial(materials.piece, materials.ball, {
             friction: 0.3,
-            restitution: 0.7
+            restitution: 0.8
         }),
         pieceAndPlatformer: global.game.physics.p2.createContactMaterial(materials.piece, materials.platformer, {
             friction: 5,

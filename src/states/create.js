@@ -28,7 +28,7 @@ define(function () {
             //Net
             net = game.add.sprite(400, 260, 'net');
             game.physics.p2.enable(net);
-            net.body.debug = true;
+//            net.body.debug = true;
             net.body.fixedRotation = true;
             net.body.clearShapes();
             net.body.addRectangle(15, 190, 20, 45);

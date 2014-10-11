@@ -37,14 +37,15 @@ define(function () {
 
                 winner.point++;
 
-                global.ball.body.y = 60;
-                global.ball.body.x = 140 + loser.index * 510;
-
-                global.ball.body.velocity.x = 0;
-                global.ball.body.velocity.y = 0;
 
                 winner.initPosition();
                 loser.initPosition();
+
+                global.ball.body.y = 60;
+                global.ball.body.x = winner.sprite.body.x;
+
+                global.ball.body.velocity.x = 0;
+                global.ball.body.velocity.y = 0;
                 global.game.paused = true;
 
                 setTimeout(function() {
