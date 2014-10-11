@@ -78,10 +78,10 @@ define(function () {
                 gyro.startTracking(function(o) {
                     if(o.y) {
 
-                        players[0].sprite.body.moveRight(o.y * 150);
+                        players[0].sprite.body.velocity.x = o.y * 150;
                     } else if(o.gamma) {
 
-                        players[0].sprite.body.moveRight(o.gamma * 50);
+                        players[0].sprite.body.velocity.x = o.gamma * 50;
                     }
                 });
 
