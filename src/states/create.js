@@ -54,7 +54,7 @@ define(function () {
 
                 for (var i in players) {
                     players[i].sprite = game.add.sprite(0, 0, 'piece');
-                    players[i].pointText = game.add.text(500 * i + 150, 50, '0', { font: "36px Arial", fill: "#FFFFFF" });
+                    players[i].pointText = game.add.text(510 * i + 140, 20, '0', { font: "36px sans-serif", fill: "#FFFFFF", stroke: "#333", strokeThickness: 2 });
                     players[i].initPosition();
                     game.physics.p2.enable(players[i].sprite);
 
@@ -68,6 +68,8 @@ define(function () {
                     players[i].sprite.body.setMaterial(spriteMaterials.piece);
 
                 }
+
+                players[0].sprite.scale.x = -1;
 
                 global.cursors = game.input.keyboard.createCursorKeys();
 
